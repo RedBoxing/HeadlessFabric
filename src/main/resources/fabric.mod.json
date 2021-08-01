@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "headless-fabric",
+  "version": "${version}",
+  "name": "HeadlessFabric",
+  "description": "Make your minecraft headless",
+  "authors": [
+    "RedBoxing"
+  ],
+  "contact": {
+    "website": "https://redboxing.fr"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "fr.redboxing.headless.HeadlessFabric"
+    ]
+  },
+  "mixins": [
+    "headless.mixins.json"
+  ],
+  "accessWidener" : "headless.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.11.6",
+    "minecraft": "1.17.1"
+  }
+}
