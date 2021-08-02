@@ -137,9 +137,14 @@ public abstract class MixinMinecraftClient {
         ci.cancel();
     }
 
-    @Inject(method = "setScreen", at = @At("HEAD"), cancellable = true)
-    private void setScreenHook(Screen screen, CallbackInfo ci) {
-        ci.cancel();
+    @Redirect(method = "setScreen", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/Window;getScaledWidth()I"))
+    private int getScaledWidthHook(Window window) {
+        return 0;
+    }
+
+    @Redirect(method = "setScreen", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/Window;getScaledHeight()I"))
+    private int getScaledHeightHook(Window window) {
+        return 0;
     }
 
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
