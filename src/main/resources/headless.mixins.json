@@ -12,7 +12,6 @@
     "net.minecraft.client.render.MixinWorldRenderer",
     "net.minecraft.client.texture.MixinTextureManager",
     "net.minecraft.client.world.MixinClientWorld",
-    "net.minecraft.resource.MixinReloadableResourceManagerImpl",
     "net.minecraft.util.MixinUtil"
   ],
   "client": [

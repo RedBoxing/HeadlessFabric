@@ -24,8 +24,10 @@ import net.minecraft.client.util.Window;
 import net.minecraft.client.util.WindowProvider;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.world.ClientWorld;
+import net.minecraft.resource.ReloadableResourceManager;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.resource.ResourcePackManager;
+import net.minecraft.resource.ResourceReloader;
 import net.minecraft.util.Util;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.profiler.ProfileResult;
@@ -209,4 +211,7 @@ public abstract class MixinMinecraftClient {
     private void gameOptionsWriteHook(GameOptions gameOptions) {
 
     }
+
+    @Redirect(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/resource/ReloadableResourceManager;registerReloader(Lnet/minecraft/resource/ResourceReloader;)V"))
+    private void replaceRegisterReloader(ReloadableResourceManager reloadableResourceManager, ResourceReloader reloader) {}
 }
