@@ -10,8 +10,10 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Matrix4f;
 import net.minecraft.util.math.Vec3f;
+import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFWErrorCallbackI;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Group;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,7 +30,7 @@ import java.util.function.Supplier;
 
 @Mixin(value = RenderSystem.class, remap = false)
 public class MixinRenderSystem {
-    @Inject(method = "initRenderThread", at = @At("HEAD"), cancellable = true)
+  /*  @Inject(method = "initRenderThread", at = @At("HEAD"), cancellable = true)
     private static void initRenderThread(CallbackInfo ci) {
         ci.cancel();
     }
@@ -723,5 +725,1190 @@ public class MixinRenderSystem {
     @Inject(method = "getShaderGameTime", at = @At("HEAD"), cancellable = true)
     private static void getShaderGameTime(CallbackInfoReturnable<Float> cir) {
         cir.setReturnValue(0.0F);
+    }*/
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void initRenderThread() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static boolean isOnRenderThread() {
+        // Source of original method is not available
+        return false;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static boolean isOnRenderThreadOrInit() {
+        // Source of original method is not available
+        return false;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void initGameThread(boolean assertNotRenderThread) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static boolean isOnGameThread() {
+        // Source of original method is not available
+        return false;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static boolean isOnGameThreadOrInit() {
+        // Source of original method is not available
+        return false;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void assertThread(Supplier<Boolean> check) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static boolean isInInitPhase() {
+        // Source of original method is not available
+        return false;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void recordRenderCall(RenderCall renderCall) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void flipFrame(long window) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void replayQueue() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void limitDisplayFPS(int fps) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void disableDepthTest() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void enableDepthTest() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void enableScissor(int i, int j, int k, int l) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void disableScissor() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void depthFunc(int func) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void depthMask(boolean mask) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void enableBlend() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void disableBlend() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void blendFunc(GlStateManager.SrcFactor srcFactor, GlStateManager.DstFactor dstFactor) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void blendFunc(int srcFactor, int dstFactor) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void blendFuncSeparate(GlStateManager.SrcFactor srcFactor, GlStateManager.DstFactor dstFactor, GlStateManager.SrcFactor srcAlpha, GlStateManager.DstFactor dstAlpha) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void blendFuncSeparate(int srcFactorRGB, int dstFactorRGB, int srcFactorAlpha, int dstFactorAlpha) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void blendEquation(int mode) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void enableCull() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void disableCull() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void polygonMode(int i, int j) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void enablePolygonOffset() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void disablePolygonOffset() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void polygonOffset(float factor, float units) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void enableColorLogicOp() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void disableColorLogicOp() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void logicOp(GlStateManager.LogicOp op) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void activeTexture(int texture) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void enableTexture() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void disableTexture() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void texParameter(int target, int pname, int param) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void deleteTexture(int texture) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void bindTextureForSetup(int i) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void bindTexture(int texture) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void viewport(int x, int y, int width, int height) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void colorMask(boolean red, boolean green, boolean blue, boolean alpha) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void stencilFunc(int func, int ref, int mask) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void stencilMask(int i) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void stencilOp(int sfail, int dpfail, int dppass) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void clearDepth(double depth) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void clearColor(float red, float green, float blue, float alpha) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void clearStencil(int i) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void clear(int mask, boolean getError) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setShaderFogStart(float f) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    private static void _setShaderFogStart(float f) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static float getShaderFogStart() {
+        // Source of original method is not available
+        return 0;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setShaderFogEnd(float f) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    private static void _setShaderFogEnd(float f) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static float getShaderFogEnd() {
+        // Source of original method is not available
+        return 0;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setShaderFogColor(float f, float g, float h, float i) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setShaderFogColor(float f, float g, float h) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    private static void _setShaderFogColor(float f, float g, float h, float i) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static float[] getShaderFogColor() {
+        // Source of original method is not available
+        return new float[0];
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setShaderLights(Vec3f vec3f, Vec3f vec3f2) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void _setShaderLights(Vec3f vec3f, Vec3f vec3f2) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setupShaderLights(Shader shader) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setShaderColor(float f, float g, float h, float i) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    private static void _setShaderColor(float f, float g, float h, float i) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static float[] getShaderColor() {
+        // Source of original method is not available
+        return new float[0];
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void drawElements(int mode, int first, int count) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void lineWidth(float width) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static float getShaderLineWidth() {
+        // Source of original method is not available
+        return 0;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void pixelStore(int pname, int param) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void readPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void getString(int name, Consumer<String> consumer) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static String getBackendDescription() {
+        // Source of original method is not available
+        return null;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static String getApiDescription() {
+        // Source of original method is not available
+        return null;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static LongSupplier initBackendSystem() {
+        // Source of original method is not available
+        return System::nanoTime;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void initRenderer(int debugVerbosity, boolean debugSync) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setErrorCallback(GLFWErrorCallbackI callback) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void renderCrosshair(int size) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static String getCapsString() {
+        // Source of original method is not available
+        return null;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setupDefaultState(int x, int y, int width, int height) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static int maxSupportedTextureSize() {
+        // Source of original method is not available
+        return 0;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glBindBuffer(int i, IntSupplier intSupplier) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glBindVertexArray(Supplier<Integer> supplier) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glBufferData(int target, ByteBuffer data, int usage) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glDeleteBuffers(int buffer) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glDeleteVertexArrays(int i) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniform1i(int location, int value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniform1(int location, IntBuffer value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniform2(int location, IntBuffer value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniform3(int location, IntBuffer value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniform4(int location, IntBuffer value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniform1(int location, FloatBuffer value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniform2(int location, FloatBuffer value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniform3(int location, FloatBuffer value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniform4(int location, FloatBuffer value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniformMatrix2(int location, boolean transpose, FloatBuffer value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniformMatrix3(int location, boolean transpose, FloatBuffer value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glUniformMatrix4(int location, boolean transpose, FloatBuffer value) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setupOverlayColor(IntSupplier texture, int size) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void teardownOverlayColor() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setupLevelDiffuseLighting(Vec3f vec3f, Vec3f vec3f2, Matrix4f matrix4f) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setupGuiFlatDiffuseLighting(Vec3f vec3f, Vec3f vec3f2) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setupGui3DDiffuseLighting(Vec3f vec3f, Vec3f vec3f2) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void beginInitialization() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void finishInitialization() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glGenBuffers(Consumer<Integer> consumer) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void glGenVertexArrays(Consumer<Integer> consumer) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static Tessellator renderThreadTesselator() {
+        // Source of original method is not available
+        return null;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void defaultBlendFunc() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    @Deprecated
+    public static void runAsFancy(Runnable runnable) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setShader(Supplier<Shader> supplier) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    @Nullable
+    public static Shader getShader() {
+        // Source of original method is not available
+        return null;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static int getTextureId(int i) {
+        // Source of original method is not available
+        return 0;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setShaderTexture(int i, Identifier identifier) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void _setShaderTexture(int i, Identifier identifier) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setShaderTexture(int i, int j) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void _setShaderTexture(int i, int j) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static int getShaderTexture(int i) {
+        // Source of original method is not available
+        return 0;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setProjectionMatrix(Matrix4f matrix4f) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setTextureMatrix(Matrix4f matrix4f) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void resetTextureMatrix() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void applyModelViewMatrix() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void backupProjectionMatrix() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    private static void _backupProjectionMatrix() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void restoreProjectionMatrix() {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    private static void _restoreProjectionMatrix() {
+        // Source of original method is not available
+    }
+
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static RenderSystem.IndexBuffer getSequentialBuffer(VertexFormat.DrawMode drawMode, int i) {
+        // Source of original method is not available
+        return null;
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static void setShaderGameTime(long l, float f) {
+        // Source of original method is not available
+    }
+
+    /**
+     * @author RedBoxing
+     * @reason noop
+    */
+    @Overwrite
+    public static float getShaderGameTime() {
+        // Source of original method is not available
+        return 0;
     }
 }

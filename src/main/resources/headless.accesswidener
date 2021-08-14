@@ -1,3 +1,14 @@
 accessWidener	v1	named
 
 accessible method net/minecraft/util/thread/ThreadExecutor runTasks ()V
+accessible method net/minecraft/client/render/WorldRenderer canDrawEntityOutlines ()Z
+accessible method net/minecraft/client/render/WorldRenderer clearChunkRenderers ()V
+accessible method net/minecraft/client/render/item/ItemRenderer renderGuiItemModel (Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/render/model/BakedModel;)V
+accessible method net/minecraft/client/gui/DrawableHelper drawHorizontalLine (Lnet/minecraft/client/util/math/MatrixStack;IIII)V
+accessible method net/minecraft/client/gui/DrawableHelper drawHorizontalLine (Lnet/minecraft/client/util/math/MatrixStack;IIII)V
+accessible method net/minecraft/client/gui/DrawableHelper fillGradient (Lnet/minecraft/client/util/math/MatrixStack;IIIIII)V
+accessible method net/minecraft/client/gui/DrawableHelper fillGradient (Lnet/minecraft/client/util/math/MatrixStack;IIIIIII)V
+accessible method net/minecraft/client/gui/DrawableHelper fillGradient (Lnet/minecraft/util/math/Matrix4f;Lnet/minecraft/client/render/BufferBuilder;IIIIIII)V
+accessible method net/minecraft/client/font/TextRenderer drawGlyph (Lnet/minecraft/client/font/GlyphRenderer;ZZFFFLnet/minecraft/util/math/Matrix4f;Lnet/minecraft/client/render/VertexConsumer;FFFFI)V
+
+accessible class net/minecraft/client/gl/WindowFramebuffer$Size

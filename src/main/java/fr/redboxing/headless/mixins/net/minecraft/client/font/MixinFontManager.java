@@ -23,4 +23,6 @@ public class MixinFontManager {
     @Redirect(method = "method_27540(Lnet/minecraft/class_377;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/class_377;method_2004(Ljava/util/List;)V"), remap = false)
     private static void setFontsHookProd(FontStorage fontStorage, List<Font> fonts) {
     }
+
+
 }
