@@ -2,46 +2,30 @@ package fr.redboxing.headless.mixins.net.minecraft.client.gl;
 
 import net.minecraft.client.gl.WindowFramebuffer;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(WindowFramebuffer.class)
 public class MixinWindowFramebuffer {
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void initSize(int width, int height) {
-        // Source of original method is not available
+    @Inject(method = "initSize", at = @At("HEAD"), cancellable = true)
+    private void initSize(int width, int height, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private WindowFramebuffer.Size findSuitableSize(int width, int height) {
-        // Source of original method is not available
-        return null;
+    @Inject(method = "findSuitableSize", at = @At("HEAD"), cancellable = true)
+    private void findSuitableSize(int width, int height, CallbackInfoReturnable<WindowFramebuffer.Size> cir) {
+        cir.setReturnValue(null);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private boolean supportColor(WindowFramebuffer.Size size) {
-        // Source of original method is not available
-        return false;
+    @Inject(method = "supportColor", at = @At("HEAD"), cancellable = true)
+    private void supportColor(WindowFramebuffer.Size size, CallbackInfoReturnable<Boolean> cir) {
+        cir.setReturnValue(false);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private boolean supportsDepth(WindowFramebuffer.Size size) {
-        // Source of original method is not available
-        return false;
+    @Inject(method = "supportsDepth", at = @At("HEAD"), cancellable = true)
+    private void supportsDepth(WindowFramebuffer.Size size, CallbackInfoReturnable<Boolean> cir) {
+        cir.setReturnValue(false);
     }
 }

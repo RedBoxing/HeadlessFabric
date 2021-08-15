@@ -3,9 +3,11 @@ package fr.redboxing.headless.mixins.net.minecraft.client.util;
 import net.minecraft.client.util.Monitor;
 import net.minecraft.client.util.VideoMode;
 import net.minecraft.client.util.Window;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -15,437 +17,233 @@ import java.util.function.BiConsumer;
 
 @Mixin(Window.class)
 public class MixinWindow {
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getRefreshRate() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getRefreshRate", at = @At("HEAD"), cancellable = true)
+    public void getRefreshRate(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public boolean shouldClose() {
-        // Source of original method is not available
-        return false;
+    @Inject(method = "shouldClose", at = @At("HEAD"), cancellable = true)
+    public void shouldClose(CallbackInfoReturnable<Boolean> cir) {
+        cir.setReturnValue(false);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public static void acceptError(BiConsumer<Integer, String> consumer) {
-        // Source of original method is not available
+    @Inject(method = "acceptError", at = @At("HEAD"), cancellable = true)
+    private static void acceptError(BiConsumer<Integer, String> consumer, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setIcon(InputStream icon16, InputStream icon32) {
-        // Source of original method is not available
+    @Inject(method = "setIcon", at = @At("HEAD"), cancellable = true)
+    public void setIcon(InputStream icon16, InputStream icon32, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    @Nullable
-    private ByteBuffer readImage(InputStream in, IntBuffer x, IntBuffer y, IntBuffer channels) {
-        // Source of original method is not available
-        return null;
+    @Inject(method = "readImage", at = @At("HEAD"), cancellable = true)
+    private void readImage(InputStream in, IntBuffer x, IntBuffer y, IntBuffer channels, CallbackInfoReturnable<ByteBuffer> cir) {
+        cir.setReturnValue(null);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setPhase(String phase) {
-        // Source of original method is not available
+    @Inject(method = "setPhase", at = @At("HEAD"), cancellable = true)
+    public void setPhase(String phase, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void throwOnGlError() {
-        // Source of original method is not available
+    @Inject(method = "throwGlError", at = @At("HEAD"), cancellable = true)
+    private static void throwOnGlError(int error, long description, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private static void throwGlError(int error, long description) {
-        // Source of original method is not available
+    @Inject(method = "throwGlError", at = @At("HEAD"), cancellable = true)
+    private static void throwGlError(int error, long description, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void logGlError(int error, long description) {
-        // Source of original method is not available
+    @Inject(method = "logGlError", at = @At("HEAD"), cancellable = true)
+    public void logGlError(int error, long description, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void logOnGlError() {
-        // Source of original method is not available
+    @Inject(method = "logOnGlError", at = @At("HEAD"), cancellable = true)
+    public void logOnGlError(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setVsync(boolean vsync) {
-        // Source of original method is not available
+    @Inject(method = "setVsync", at = @At("HEAD"), cancellable = true)
+    public void setVsync(boolean vsync, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void close() {
-        // Source of original method is not available
+    @Inject(method = "close", at = @At("HEAD"), cancellable = true)
+    public void close(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void onWindowPosChanged(long window, int x, int y) {
-        // Source of original method is not available
+    @Inject(method = "onWindowPosChanged", at = @At("HEAD"), cancellable = true)
+    private void onWindowPosChanged(long window, int x, int y, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void onFramebufferSizeChanged(long window, int width, int height) {
-        // Source of original method is not available
+    @Inject(method = "onFramebufferSizeChanged", at = @At("HEAD"), cancellable = true)
+    private void onFramebufferSizeChanged(long window, int width, int height, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void updateFramebufferSize() {
-        // Source of original method is not available
+    @Inject(method = "updateFramebufferSize", at = @At("HEAD"), cancellable = true)
+    private void updateFramebufferSize(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void onWindowSizeChanged(long window, int width, int height) {
-        // Source of original method is not available
+    @Inject(method = "onWindowSizeChanged", at = @At("HEAD"), cancellable = true)
+    private void onWindowSizeChanged(long window, int width, int height, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void onWindowFocusChanged(long window, boolean focused) {
-        // Source of original method is not available
+    @Inject(method = "onWindowFocusChanged", at = @At("HEAD"), cancellable = true)
+    private void onWindowFocusChanged(long window, boolean focused, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void onCursorEnterChanged(long window, boolean entered) {
-        // Source of original method is not available
+    @Inject(method = "onCursorEnterChanged", at = @At("HEAD"), cancellable = true)
+    private void onCursorEnterChanged(long window, boolean entered, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setFramerateLimit(int framerateLimit) {
-        // Source of original method is not available
+    @Inject(method = "setFramerateLimit", at = @At("HEAD"), cancellable = true)
+    public void setFramerateLimit(int framerateLimit, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getFramerateLimit() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getFramerateLimit", at = @At("HEAD"), cancellable = true)
+    public void getFramerateLimit(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void swapBuffers() {
-        // Source of original method is not available
+    @Inject(method = "swapBuffers", at = @At("HEAD"), cancellable = true)
+    public void swapBuffers(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public Optional<VideoMode> getVideoMode() {
-        // Source of original method is not available
-        return Optional.empty();
+    @Inject(method = "getVideoMode", at = @At("HEAD"), cancellable = true)
+    public void getVideoMode(CallbackInfoReturnable<Optional<VideoMode>> cir) {
+        cir.setReturnValue(Optional.empty());
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setVideoMode(Optional<VideoMode> videoMode) {
-        // Source of original method is not available
+    @Inject(method = "setVideoMode", at = @At("HEAD"), cancellable = true)
+    public void setVideoMode(Optional<VideoMode> videoMode, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void applyVideoMode() {
-        // Source of original method is not available
+    @Inject(method = "applyVideoMode", at = @At("HEAD"), cancellable = true)
+    public void applyVideoMode(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void updateWindowRegion() {
-        // Source of original method is not available
+    @Inject(method = "updateWindowRegion", at = @At("HEAD"), cancellable = true)
+    private void updateWindowRegion(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void toggleFullscreen() {
-        // Source of original method is not available
+    @Inject(method = "toggleFullscreen", at = @At("HEAD"), cancellable = true)
+    public void toggleFullscreen(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setWindowedSize(int width, int height) {
-        // Source of original method is not available
+    @Inject(method = "setWindowedSize", at = @At("HEAD"), cancellable = true)
+    public void setWindowedSize(int width, int height, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void updateFullscreen(boolean vsync) {
-        // Source of original method is not available
+    @Inject(method = "updateFullscreen", at = @At("HEAD"), cancellable = true)
+    private void updateFullscreen(boolean vsync, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int calculateScaleFactor(int guiScale, boolean forceUnicodeFont) {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "calculateScaleFactor", at = @At("HEAD"), cancellable = true)
+    public void calculateScaleFactor(int guiScale, boolean forceUnicodeFont, CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setScaleFactor(double scaleFactor) {
-        // Source of original method is not available
+    @Inject(method = "setScaleFactor", at = @At("HEAD"), cancellable = true)
+    public void setScaleFactor(double scaleFactor, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setTitle(String title) {
-        // Source of original method is not available
+    @Inject(method = "setTitle", at = @At("HEAD"), cancellable = true)
+    public void setTitle(String title, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public long getHandle() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getHandle", at = @At("HEAD"), cancellable = true)
+    public void getHandle(CallbackInfoReturnable<Long> cir) {
+        cir.setReturnValue(0L);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public boolean isFullscreen() {
-        // Source of original method is not available
-        return false;
+    @Inject(method = "isFullscreen", at = @At("HEAD"), cancellable = true)
+    public void isFullscreen(CallbackInfoReturnable<Boolean> cir) {
+        cir.setReturnValue(false);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getFramebufferWidth() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getFramebufferWidth", at = @At("HEAD"), cancellable = true)
+    public void getFramebufferWidth(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getFramebufferHeight() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getFramebufferHeight", at = @At("HEAD"), cancellable = true)
+    public void getFramebufferHeight(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setFramebufferWidth(int framebufferWidth) {
-        // Source of original method is not available
+    @Inject(method = "setFramebufferWidth", at = @At("HEAD"), cancellable = true)
+    public void setFramebufferWidth(int framebufferWidth, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setFramebufferHeight(int framebufferHeight) {
-        // Source of original method is not available
+    @Inject(method = "setFramebufferHeight", at = @At("HEAD"), cancellable = true)
+    public void setFramebufferHeight(int framebufferHeight, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getWidth() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getWidth", at = @At("HEAD"), cancellable = true)
+    public void getWidth(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getHeight() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getHeight", at = @At("HEAD"), cancellable = true)
+    public void getHeight(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getScaledWidth() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getScaledWidth", at = @At("HEAD"), cancellable = true)
+    public void getScaledWidth(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getScaledHeight() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getScaledHeight", at = @At("HEAD"), cancellable = true)
+    public void getScaledHeight(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getX() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getX", at = @At("HEAD"), cancellable = true)
+    public void getX(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getY() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getY", at = @At("HEAD"), cancellable = true)
+    public void getY(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public double getScaleFactor() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getScaleFactor", at = @At("HEAD"), cancellable = true)
+    public void getScaleFactor(CallbackInfoReturnable<Double> cir) {
+        cir.setReturnValue(0D);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    @Nullable
-    public Monitor getMonitor() {
-        // Source of original method is not available
-        return null;
+    @Inject(method = "getMonitor", at = @At("HEAD"), cancellable = true)
+    public void getMonitor(CallbackInfoReturnable<Monitor> cir) {
+        cir.setReturnValue(null);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setRawMouseMotion(boolean rawMouseMotion) {
-        // Source of original method is not available
+    @Inject(method = "setRawMouseMotion", at = @At("HEAD"), cancellable = true)
+    public void setRawMouseMotion(boolean rawMouseMotion, CallbackInfo ci) {
+        ci.cancel();
     }
 }

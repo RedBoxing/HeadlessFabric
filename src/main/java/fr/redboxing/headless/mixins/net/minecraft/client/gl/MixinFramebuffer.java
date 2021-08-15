@@ -2,180 +2,105 @@ package fr.redboxing.headless.mixins.net.minecraft.client.gl;
 
 import net.minecraft.client.gl.Framebuffer;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Framebuffer.class)
 public class MixinFramebuffer {
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void resize(int width, int height, boolean getError) {
-        // Source of original method is not available
+    @Inject(method = "resize", at = @At("HEAD"), cancellable = true)
+    public void resize(int width, int height, boolean getError, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void resizeInternal(int width, int height, boolean getError) {
-        // Source of original method is not available
+    @Inject(method = "resizeInternal", at = @At("HEAD"), cancellable = true)
+    private void resizeInternal(int width, int height, boolean getError, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void delete() {
-        // Source of original method is not available
+    @Inject(method = "delete", at = @At("HEAD"), cancellable = true)
+    public void delete(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void copyDepthFrom(Framebuffer framebuffer) {
-        // Source of original method is not available
+    @Inject(method = "copyDepthFrom", at = @At("HEAD"), cancellable = true)
+    public void copyDepthFrom(Framebuffer framebuffer, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void initFbo(int width, int height, boolean getError) {
-        // Source of original method is not available
+    @Inject(method = "initFbo", at = @At("HEAD"), cancellable = true)
+    public void initFbo(int width, int height, boolean getError, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setTexFilter(int i) {
-        // Source of original method is not available
+    @Inject(method = "setTexFilter", at = @At("HEAD"), cancellable = true)
+    public void setTexFilter(int i, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void checkFramebufferStatus() {
-        // Source of original method is not available
+    @Inject(method = "checkFramebufferStatus", at = @At("HEAD"), cancellable = true)
+    public void checkFramebufferStatus(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void method_35610() {
-        // Source of original method is not available
+    @Inject(method = "method_35610", at = @At("HEAD"), cancellable = true)
+    public void method_35610(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void endRead() {
-        // Source of original method is not available
+    @Inject(method = "endRead", at = @At("HEAD"), cancellable = true)
+    public void endRead(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void beginWrite(boolean setViewport) {
-        // Source of original method is not available
+    @Inject(method = "beginWrite", at = @At("HEAD"), cancellable = true)
+    public void beginWrite(boolean setViewport, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void bind(boolean updateViewport) {
-        // Source of original method is not available
+    @Inject(method = "bind", at = @At("HEAD"), cancellable = true)
+    private void bind(boolean updateViewport, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void endWrite() {
-        // Source of original method is not available
+    @Inject(method = "endWrite", at = @At("HEAD"), cancellable = true)
+    public void endWrite(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void setClearColor(float r, float g, float b, float a) {
-        // Source of original method is not available
+    @Inject(method = "setClearColor", at = @At("HEAD"), cancellable = true)
+    public void setClearColor(float r, float g, float b, float a, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void draw(int width, int height) {
-        // Source of original method is not available
+    @Inject(method = "draw(II)V", at = @At("HEAD"), cancellable = true)
+    public void draw(int width, int height, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void draw(int width, int height, boolean bl) {
-        // Source of original method is not available
+    @Inject(method = "draw(IIZ)V", at = @At("HEAD"), cancellable = true)
+    public void draw(int width, int height, boolean bl, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    private void drawInternal(int width, int height, boolean disableBlend) {
-        // Source of original method is not available
+    @Inject(method = "drawInternal", at = @At("HEAD"), cancellable = true)
+    private void drawInternal(int width, int height, boolean disableBlend, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public void clear(boolean getError) {
-        // Source of original method is not available
+    @Inject(method = "clear", at = @At("HEAD"), cancellable = true)
+    public void clear(boolean getError, CallbackInfo ci) {
+        ci.cancel();
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getColorAttachment() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getColorAttachment", at = @At("HEAD"), cancellable = true)
+    public void getColorAttachment(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public int getDepthAttachment() {
-        // Source of original method is not available
-        return 0;
+    @Inject(method = "getDepthAttachment", at = @At("HEAD"), cancellable = true)
+    public void getDepthAttachment(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
     }
 }

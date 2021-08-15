@@ -69,6 +69,11 @@ publishing {
             artifact(sourcesJar) {
                 builtBy remapSourcesJar
             }
+
+            groupId = project.maven_group
+            artifactId = project.archives_base_name
+            version = project.mod_version
+
         }
     }
 
@@ -76,5 +81,10 @@ publishing {
     repositories {
         // uncomment to publish to the local maven
         // mavenLocal()
+
+        maven {
+            url 'https://repo.redboxing.fr/repository/public/'
+            credentials(PasswordCredentials)
+        }
     }
 }

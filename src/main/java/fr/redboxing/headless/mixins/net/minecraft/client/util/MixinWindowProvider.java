@@ -6,16 +6,14 @@ import net.minecraft.client.util.Window;
 import net.minecraft.client.util.WindowProvider;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(WindowProvider.class)
 public class MixinWindowProvider {
-    /**
-     * @author RedBoxing
-     * @reason noop
-    */
-    @Overwrite
-    public Window createWindow(WindowSettings settings, @Nullable String videoMode, String title) {
-        return ObjectAllocator.allocate(Window.class);
+    @Inject(method = "createWindow", at = @At("HEAD"), cancellable = true)
+    public void createWindow(WindowSettings settings, String videoMode, String title, CallbackInfoReturnable<Window> cir) {
+        cir.setReturnValue(ObjectAllocator.allocate(Window.class));
     }
 }

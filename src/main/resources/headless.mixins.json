@@ -7,19 +7,17 @@
     "com.mojang.blaze3d.platform.MixinGlStateManager",
     "com.mojang.blaze3d.platform.MixinTextureUtil",
     "com.mojang.blaze3d.systems.MixinRenderSystem",
+    "net.minecraft.client.MixinMinecraftClient",
     "net.minecraft.client.font.MixinFontManager",
-    "net.minecraft.client.font.MixinTextRenderer",
     "net.minecraft.client.gl.MixinFramebuffer",
     "net.minecraft.client.gl.MixinWindowFramebuffer",
     "net.minecraft.client.gui.MixinDrawableHelper",
     "net.minecraft.client.render.MixinGameRenderer",
     "net.minecraft.client.render.MixinWorldRenderer",
     "net.minecraft.client.texture.MixinNativeImage",
-    "net.minecraft.client.toast.MixinToastManager",
     "net.minecraft.client.util.MixinInputUtil",
     "net.minecraft.client.util.MixinWindow",
-    "net.minecraft.client.util.MixinWindowProvider",
-    "net.minecraft.client.world.MixinClientWorld"
+    "net.minecraft.client.util.MixinWindowProvider"
   ],
   "client": [
   ],
